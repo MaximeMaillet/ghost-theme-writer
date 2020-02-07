@@ -1,0 +1,9 @@
+{{#get "posts" filter="primary_tag:pub"}}
+    <div class="pub">
+        {{#foreach posts}}
+            <div class="content">
+                {{content}}
+            </div>
+        {{/foreach}}
+    </div>
+{{/get}}

@@ -1,0 +1,28 @@
+{
+  "name": "custom",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "NODE_ENV=dev ./node_modules/.bin/gulp build",
+    "build-watch": "NODE_ENV=dev ./node_modules/.bin/gulp"
+  },
+  "author": {
+    "name": "Maxime Maillet",
+    "email": "maxime.maillet93@gmail.com"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.26.7",
+    "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-sass": "^4.0.2",
+    "gulp-zip": "^5.0.1"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.12.1",
+    "bootstrap": "^4.4.1",
+    "jquery": "^3.4.1"
+  }
+}

@@ -1,0 +1,115 @@
+.tag-container-fluid {
+  .tag-container {
+    div.tag-header {
+      min-height: 30rem;
+      margin-top: -15rem;
+      margin-bottom: 3rem;
+      padding: 1em;
+
+      .image {
+        img {
+          height: 250px;
+          width: auto;
+        }
+      }
+
+      .titles {
+        margin: 1em;
+      }
+
+      h1 {
+        font-size: 1.5em;
+        margin: 0;
+      }
+
+      h2 {
+        font-size: 1em;
+        margin: 0;
+      }
+
+      .posts {
+        display: flex;
+        margin: 1em 0;
+
+        a.post {
+          display: block;
+          position: relative;
+          height: 400px;
+          width: 300px;
+          margin-right: 1em;
+
+          &:last-of-type {
+            margin-right: 0;
+          }
+
+          &:hover {
+            .image:after {
+              display: none;
+            }
+          }
+
+          .image {
+            height: 100%;
+            width: 100%;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+
+            &:after {
+              content: '';
+              display: block;
+              height: 100%;
+              width: 100%;
+              background-color: rgba(0,0,0,0.6);
+            }
+          }
+
+          .text {
+            position: absolute;
+            bottom: 5rem;
+            left:0;
+            right:0;
+            color: $white;
+            text-align: center;
+
+            .title {
+              font-size: 1.2em;
+            }
+            .author {
+              font-size: 0.8em;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+div.tag-resume {
+  div.tag-resume-image {
+    width: 200px;
+    height: 300px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .text {
+    margin-left: 1em;
+
+    .resume-title {
+      font-size: 1.1em;
+      color: $gray;
+      margin-bottom: 2em;
+    }
+
+    .title {
+      font-size: 1.2em;
+    }
+
+    .descrition {
+      font-size: 0.8em;
+      margin-bottom: 1em;
+    }
+  }
+}

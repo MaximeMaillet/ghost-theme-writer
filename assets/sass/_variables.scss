@@ -1,0 +1,47 @@
+/**
+ * Colors
+ */
+
+$white: #fff;
+$break-white: #EEEEEE;
+
+$black: #000000;
+$black-light: #191b1f;
+
+$gray: #738a94;
+
+$primary: #D81E5B;
+$secondary: #3A3335;
+
+/**
+ * Fonts
+ */
+$fontWeightThin: 100;
+$fontWeightExtraLight: 200;
+$fontWeightLight: 300;
+$fontWeightRegular: 400;
+$fontWeightMedium:500;
+$fontWeightSemiBold: 600;
+$fontWeightBold: 700;
+$fontWeightBlack: 900;
+
+/**
+ * Border
+ */
+$borderRadius: 10px;
+
+/**
+ * Sizes
+ */
+$heightBackgroundFluidImage: 25rem;
+
+/**
+ * Functions
+ */
+@function homeScreenMarginTop($base, $percent) {
+  @return - ($base * $percent) / 100rem;
+}
+
+@mixin container-on-background-fluid-image($percent) {
+  margin-top: homeScreenMarginTop($heightBackgroundFluidImage, $percent);
+}

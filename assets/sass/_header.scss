@@ -1,0 +1,31 @@
+header {
+  $heightHeader: 5rem;
+  height: $heightHeader;
+  background-color: $black-light;
+  padding: 1rem;
+
+  .header-simple {
+    img {
+      height: 3rem;
+      width: auto;
+      border-radius: 50%;
+    }
+
+    .titles {
+      margin-left: 1em;
+
+      h5,h4 {
+        color: $primary;
+        margin: 0;
+      }
+
+      h4 {
+        font-size: 1em;
+      }
+
+      h5 {
+        font-size: 0.8em;
+      }
+    }
+  }
+}

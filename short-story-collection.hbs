@@ -1,0 +1,25 @@
+{{!< default}}
+
+{{> header}}
+
+<div class="container short-story-collection-container">
+    {{#get "tags" limit="all" filter="slug:-[pub,short-story,short-story-collection,chronicles]" include="count.posts"}}
+        <div class="row">
+            {{#foreach tags}}
+<!--                {{#if feature_image}}-->
+                    <div class="col-sm-12 col-md-6">
+                        <div class="short-story-collection" style="background-image: url('{{feature_image}}')">
+                            <div class="titles">
+                                <h1>{{ name }}</h1>
+                                <h2>{{ description }}</h2>
+                            </div>
+                            <a href="{{url}}" class="counts">
+                                {{ count.posts }} histoire(s)
+                            </a>
+                        </div>
+                    </div>
+<!--                {{/if}}-->
+            {{/foreach}}
+        </div>
+    {{/get}}
+</div>

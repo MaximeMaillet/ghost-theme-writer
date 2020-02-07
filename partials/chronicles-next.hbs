@@ -1,0 +1,19 @@
+{{#has slug=slug tag="chronicles"}}
+    {{#foreach tags}}
+        {{^has slug="chronicles"}}
+            {{#get "posts" filter=(concat "tags:" slug "+id:>" ../id) order="id asc" limit="1"}}
+                {{#foreach posts}}
+                    {{#if id}}
+                        <p class="text-center">
+                            La suite de la chronique :<br />
+                            <a href="{{url}}" class="btn btn-primary btn-block btn-arrow arrow-left">Découvrir &laquo; {{title}} &raquo;</a>
+                        </p>
+                    {{/if}}
+                {{else}}
+                    <h3>Soyez alerté de la suite !</h3>
+                    {{> subscribe-form}}
+                {{/foreach}}
+            {{/get}}
+        {{/has}}<br />
+    {{/foreach}}
+{{/has}}
