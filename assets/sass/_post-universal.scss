@@ -1,7 +1,29 @@
 .post {
+  &.top-icon {
+    .post-titles {
+      @extend %fa-icon;
+      @extend .fas;
+
+      &:before {
+        color: $white;
+        font-size: 1.8em;
+        margin-right: 5px;
+        position: absolute;
+        left: -40px;
+        border-radius: 50%;
+        height: 50px;
+        width: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
 
   .post-titles {
     padding: 1em;
+    position: relative;
+
     & {
       @include media-breakpoint-down(sm) {
         flex-direction: column !important;
@@ -64,8 +86,9 @@
 
   .post-split {
     height: 1px;
-    width: 100%;
-    background-color: $black-light;
+    width: 80%;
+    margin: 3rem auto;
+    background-color: $gray-light;
     border: none;
   }
 
@@ -101,6 +124,350 @@
         content: '* * *';
         text-align: center;
         font-weight: $fontWeightBold;
+      }
+    }
+
+    .kg-card {
+      width: 100%;
+      padding: 1em 2em;
+      text-align: center;
+
+      &.kg-image-card {
+        height: 400px;
+
+        img {
+          width: auto;
+          height: 100%;
+        }
+      }
+
+      &.kg-embed-card {
+        width: 60%;
+        margin: auto;
+
+        .twitter-tweet {
+          border-left: 2px solid $twitter;
+          padding-left: 1em;
+          font-style: italic;
+
+          a {
+            color: $twitter;
+          }
+        }
+      }
+
+      &.kg-bookmark-card {
+        width: 60%;
+        margin: auto;
+        border: 1px solid $gray;
+        border-radius: $borderRadius;
+        background-color: $white;
+        position: relative;
+        text-align: left;
+        padding-top: 2em;
+
+        &:before {
+          content: '\f02e';
+          font-family: "Font Awesome 5 Free", serif;
+          position: absolute;
+          top: -15px;
+          left: 1rem;
+          color: $primary;
+          font-size: 2em;
+          font-weight: 900;
+        }
+
+        .kg-bookmark-container {
+          text-decoration: none;
+
+          &:hover {
+            text-decoration: none;
+          }
+
+          .kg-bookmark-content {
+            .kg-bookmark-title {
+              font-size: 1.1em;
+              color: $primary;
+
+              &:hover {
+                text-decoration: underline;
+              }
+            }
+
+            .kg-bookmark-description {
+              font-size: 0.8em;
+              color: $gray;
+
+              &:hover {
+                color: $primary;
+              }
+            }
+
+            .kg-bookmark-metadata {
+              .kg-bookmark-author, .kg-bookmark-publisher, .kg-bookmark-icon{
+                vertical-align: middle;
+              }
+
+              .kg-bookmark-icon {
+                display: block;
+                float: left;
+                margin: 0 1em 0 0;
+                height: 40px;
+                width: auto;
+              }
+
+              .kg-bookmark-author {
+                margin-top: 1em;
+              }
+
+              .kg-bookmark-author, .kg-bookmark-publisher {
+                display: block;
+                font-size: 0.7em;
+                color: $gray;
+
+                &:hover {
+                  text-decoration: underline;
+                }
+              }
+            }
+
+          }
+
+          .kg-bookmark-thumbnail {
+            text-align: right;
+
+            img {
+              height: 60px;
+              width: auto;
+            }
+          }
+        }
+      }
+
+      &.kg-gallery-card {
+        .kg-gallery-container {
+          width: 70%;
+          margin: auto;
+          display: flex;
+          flex-direction: column;
+
+          .kg-gallery-row {
+            display: flex;
+            justify-content: space-around;
+            flex-direction: row;
+            margin-bottom: 1em;
+
+            .kg-gallery-image {
+              height: 200px;
+              width: auto;
+
+              img {
+                height: 100%;
+                width: auto;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.shorts-story {
+    h1 {
+      color: $short-story-color;
+    }
+    .post-titles {
+      &:before {
+        content: fa-content($fa-var-file-alt);
+        background-color: $short-story-color;
+      }
+    }
+  }
+
+  &.novels {
+    .post-titles {
+      h1 {
+        color: $novels-color;
+      }
+      &:before {
+        content: fa-content($fa-var-book-open);
+        background-color: $novels-color;
+      }
+    }
+  }
+
+  &.chronicles {
+    .post-titles {
+      h1 {
+        color: $chronicles-color;
+      }
+      &:before {
+        content: fa-content($fa-var-newspaper);
+        background-color: $chronicles-color;
+      }
+    }
+  }
+
+  &.theaters {
+    .post-titles {
+      h1 {
+        color: $theaters-color;
+      }
+      &:before {
+        content: fa-content($fa-var-theater-masks);
+        background-color: $theaters-color;
+      }
+    }
+  }
+
+  &.scenarios {
+    .post-titles {
+      h1 {
+        color: $scenarios-color;
+      }
+      &:before {
+        content: fa-content($fa-var-film);
+        color: $white;
+        background-color: $scenarios-color;
+      }
+    }
+  }
+}
+
+.posts-list {
+  .article {
+    margin-bottom: 1em;
+    border-radius: $borderRadius;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    min-height: 20rem;
+
+    .article-image {
+      background-size: cover;
+      background-position: center;
+      flex: 1;
+    }
+
+    .article-body {
+      padding: 1em;
+      flex:2;
+      background-color: $white;
+
+      .article-header {
+        color: $gray;
+        font-size: 0.8em;
+
+        .article-infos {
+          white-space: nowrap;
+
+          img {
+            height: 50px;
+            width: auto;
+            border-radius: 50%;
+            border: 1px solid $gray;
+          }
+
+          p {
+            margin: 0 0 0 1em;
+            padding: 0;
+
+            strong {
+              text-transform: uppercase;
+            }
+          }
+        }
+      }
+
+      .article-excerpt {
+        margin-top: 1em;
+
+        h3 {
+          color: $primary;
+          font-size: 2em;
+        }
+
+        p {
+          font-size: 1em;
+          text-align: justify;
+        }
+      }
+    }
+
+    .article-tags {
+      flex-wrap: wrap;
+
+      .tag-item {
+        border-radius: 5px;
+        box-shadow: 1px 2px 2px $black-light;
+        font-size: 0.8em;
+        font-weight: $fontWeightLight;
+        padding: 0.5em 1em;
+        margin: 0.2em;
+        white-space: nowrap;
+      }
+    }
+
+    &.tag-short-story {
+      .tag-item {
+        @include label-shorts-story();
+      }
+    }
+
+    &.tag-chronicles {
+      .tag-item {
+        @include label-chronicles();
+      }
+    }
+
+    &.tag-novels {
+      .tag-item {
+        @include label-novels();
+      }
+    }
+
+    &.tag-theaters {
+      .tag-item {
+        @include label-theaters();
+      }
+    }
+
+    &.tag-scenarios {
+      .tag-item {
+        @include label-scenarios();
+      }
+    }
+
+    & {
+      @include media-breakpoint-down(sm) {
+        flex-direction: column;
+        position: relative;
+
+        .article-image {
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: 0;
+          bottom: 0;
+          z-index:5;
+        }
+
+        .article-body {
+          z-index: 6;
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          font-size: 0.8em;
+
+          .article-header {
+            display: none !important;
+          }
+
+          .article-tags {
+            display: none !important;
+          }
+        }
       }
     }
   }

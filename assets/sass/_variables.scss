@@ -1,17 +1,27 @@
 /**
  * Colors
  */
-
+$purple: #48455D;
+$blue: #71C1E9;
+$yellow: #F7CD54;
+$red: #F26659;
+$green: #79C4BD;
 $white: #fff;
-$break-white: #EEEEEE;
-
+$gray: #738a94;
 $black: #000000;
+$twitter: #00acee;
+
+$break-white: #EEEEEE;
+$white-light: #eeeeee;
+$gray-light: #D3D3D3;
 $black-light: #191b1f;
 
-$gray: #738a94;
-
 $primary: #D81E5B;
-$secondary: #3A3335;
+$chronicles-color: $green;
+$short-story-color: $purple;
+$novels-color: $red;
+$theaters-color: $yellow;
+$scenarios-color: $blue;
 
 /**
  * Fonts
@@ -44,4 +54,29 @@ $heightBackgroundFluidImage: 25rem;
 
 @mixin container-on-background-fluid-image($percent) {
   margin-top: homeScreenMarginTop($heightBackgroundFluidImage, $percent);
+}
+
+@mixin label-chronicles() {
+  background-color: $chronicles-color;
+  color: $black-light;
+}
+
+@mixin label-shorts-story() {
+  background-color: $short-story-color;
+  color: $white;
+}
+
+@mixin label-novels() {
+  background-color: $novels-color;
+  color: $white;
+}
+
+@mixin label-theaters() {
+  background-color: $theaters-color;
+  color: $black-light;
+}
+
+@mixin label-scenarios() {
+  background-color: $scenarios-color;
+  color: $black-light;
 }

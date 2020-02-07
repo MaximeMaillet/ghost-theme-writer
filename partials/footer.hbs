@@ -2,10 +2,10 @@
     <div class="container h-100 d-flex flex-column footer-container">
         <div class="d-flex flex-row top">
             <div class="links">
-                {{#get "posts" filter="slug:footer-links"}}
-                    {{#posts}}
+                {{#get "pages" filter="slug:footer-links"}}
+                    {{#pages}}
                         {{content}}
-                    {{/posts}}
+                    {{/pages}}
                 {{/get}}
             </div>
             <div class="ml-auto footer-newsletter">
@@ -13,14 +13,9 @@
                 {{> subscribe-form}}
             </div>
         </div>
-        <div class="d-flex flex-row mt-auto bottom">
+        <div class="d-flex flex-row align-items-center mt-auto bottom">
             <div class="social">
-                {{#if @site.facebook}}
-                    <a href="https://www.facebook.com/{{@site.facebook}}" target="_blank"><span class="fab fa-facebook"></span></a>
-                {{/if}}
-                {{#if @site.twitter}}
-                    <a href="https://twitter.com/{{@site.twitter}}" target="_blank"><span class="fab fa-twitter"></span></a>
-                {{/if}}
+                {{> social-links}}
             </div>
             <div class="ml-auto copyright">
                 Deux.Max &copy; <span id="copyright-year"></span>

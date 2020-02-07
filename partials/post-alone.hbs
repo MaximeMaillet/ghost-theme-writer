@@ -1,0 +1,5 @@
+{{#get "posts" limit="20" order="created_at desc" filter="tags:-[config,chronicles,short-story,novels,theaters,scenarios,articles]" include="authors,tags"}}
+    {{#foreach posts}}
+        <a href="{{url}}">{{title}}</a><br />
+    {{/foreach}}
+{{/get}}

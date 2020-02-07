@@ -1,9 +1,13 @@
-{{#get "posts" filter="primary_tag:pub"}}
-    <div class="pub">
-        {{#foreach posts}}
-            <div class="content">
-                {{content}}
+{{#get "pages" filter="primary_tag:pub"}}
+    {{#if pages}}
+        <div class="{{class}}">
+            <div class="pub">
+                {{#foreach pages}}
+                    <div class="content">
+                        {{content}}
+                    </div>
+                {{/foreach}}
             </div>
-        {{/foreach}}
-    </div>
+        </div>
+    {{/if}}
 {{/get}}

@@ -1,0 +1,38 @@
+{{!< default}}
+
+{{> header}}
+
+<div class="container">
+    <div class="row mb-5 mt-5 ml-auto mr-auto">
+        {{#foreach posts}}
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 p-1 text-center">
+                <div class="sleeve {{post_class}}" style="background-image: url('{{feature_image}}')">
+                    <a href="{{url}}" class="sleeve-titles">
+                        <div class="title">{{ title }}</div>
+                        <div class="author">{{ primary_author.name }}</div>
+                        <div class="date"><time datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMMM YYYY"}}</time></div>
+                    </a>
+                    <div class="sleeve-tags">
+                        {{#has slug=slug tag="short-story"}}
+                            {{#foreach tags}}
+                                {{^has slug="chronicles"}}
+                                    {{^has slug="short-story"}}
+                                        {{^has slug="short-story-collection"}}
+                                            {{^has slug="theaters"}}
+                                                {{^has slug="novels"}}
+                                                    {{^has slug="scenarios"}}
+                                                        <a href="{{url}}" class="sleeve-label">{{name}}</a>
+                                                    {{/has}}
+                                                {{/has}}
+                                            {{/has}}
+                                        {{/has}}
+                                    {{/has}}
+                                {{/has}}
+                            {{/foreach}}
+                        {{/has}}
+                    </div>
+                </div>
+            </div>
+        {{/foreach}}
+    </div>
+</div>

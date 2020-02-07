@@ -3,45 +3,44 @@
 {{> header}}
 
 
-<div class="container-fluid tag-container-fluid">
+<div class="container-fluid">
     {{#tag}}
-        {{#if feature_image}}
-            {{> background-fluid background=feature_image header="1"}}
-        {{/if}}
+        {{> background-fluid background=feature_image header="1"}}
     {{/tag}}
 
-    <section class="container tag-container">
-        <div class="d-flex flex-column custom-block tag-header">
+    <section class="container custom-block container-break-white container-on-background-image tag-container pb-3 pt-3 mb-5">
+        <div class="d-flex flex-column">
             <div class="d-flex flex-row">
                 {{#tag}}
-                <div class="image">
-                    <img src="{{feature_image}}" alt="books {{name}}" />
-                </div>
-                <div class="titles">
-                    <h1>{{name}}</h1>
-                    {{#if description}}
-                        <h2>{{description}}</h2>
-                    {{/if}}
-                </div>
+                    <div class="tag-image" style="background-image:url('{{feature_image}}')"></div>
                 {{/tag}}
-            </div>
-            <div class="posts">
-                {{#foreach posts }}
-                    <a href="{{url}}" class="post">
-                        <div class="image" style="background-image: url('{{feature_image}}')"></div>
-                        <div class="text">
-                            <div class="title">{{title}}</div>
-                            <div class="author">{{authors.0.name}}</div>
+                    <div class="tag-titles d-flex flex-column">
+                        {{#tag}}
+                            <h1>{{name}}</h1>
+                            {{#if description}}
+                                <h2>{{description}}</h2>
+                            {{/if}}
+                        {{/tag}}
+
+                        <div class="mt-auto d-flex flex-row posts">
+                            {{#foreach posts }}
+                                <a href="{{url}}" class="post">
+                                    <div class="image" style="background-image: url('{{feature_image}}')"></div>
+                                    <div class="text">
+                                        <div class="title">{{title}}</div>
+                                        <div class="author">{{authors.0.name}}</div>
+                                    </div>
+                                </a>
+                            {{/foreach}}
+
+                            {{pagination}}
                         </div>
-                    </a>
-                {{/foreach}}
+                    </div>
             </div>
         </div>
     </section>
 
     {{#tag}}
-        {{#if feature_image}}
-            {{> background-fluid background=feature_image footer="1"}}
-        {{/if}}
+        {{> background-fluid background=feature_image footer="1"}}
     {{/tag}}
 </div>

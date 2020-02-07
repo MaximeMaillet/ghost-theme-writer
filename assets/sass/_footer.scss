@@ -2,11 +2,23 @@ footer {
   background-color: $black-light;
   color: $break-white;
   width: 100%;
-  height: 15rem;
+  min-height: 15rem;
   padding: 1em;
+  overflow: hidden;
 
-  .top {
-    margin-bottom: 1em;
+  @include media-breakpoint-down(sm) {
+    .top {
+      flex-direction: column !important;
+
+      .footer-newsletter {
+        order: 1;
+        margin: 0 0 1em 0 !important;
+      }
+
+      .links {
+        order: 2;
+      }
+    }
   }
 
   .bottom {

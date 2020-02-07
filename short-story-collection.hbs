@@ -3,10 +3,11 @@
 {{> header}}
 
 <div class="container short-story-collection-container">
-    {{#get "tags" limit="all" filter="slug:-[pub,short-story,short-story-collection,chronicles]" include="count.posts"}}
+    {{#get "tags" limit="all" filter="slug:-[pub,short-story,short-story-collection,chronicles,novels]" include="count.posts"}}
         <div class="row">
             {{#foreach tags}}
-<!--                {{#if feature_image}}-->
+                {{slug}}<br />
+                {{#has slug="short-story-collection"}}
                     <div class="col-sm-12 col-md-6">
                         <div class="short-story-collection" style="background-image: url('{{feature_image}}')">
                             <div class="titles">
@@ -18,7 +19,7 @@
                             </a>
                         </div>
                     </div>
-<!--                {{/if}}-->
+                {{/has}}
             {{/foreach}}
         </div>
     {{/get}}
