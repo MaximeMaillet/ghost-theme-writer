@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "keywords": ["ghost-theme"],
+  "keywords": [
+    "ghost-theme"
+  ],
   "engines": {
     "ghost-api": "v3"
   },

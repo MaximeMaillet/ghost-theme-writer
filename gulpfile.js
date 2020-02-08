@@ -17,8 +17,8 @@ gulp.task('pack', function () {
     '!package-lock.json',
     '!routes.yaml'
   ])
-    .pipe(zip('ghost-theme.zip'))
-    .pipe(gulp.dest(''));
+    .pipe(zip('ghost-theme-writer.zip'))
+    .pipe(gulp.dest('.'));
 });
 
 gulp.task('lib-cp', function() {
