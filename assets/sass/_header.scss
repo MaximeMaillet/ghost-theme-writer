@@ -27,5 +27,17 @@ header {
         font-size: 0.8em;
       }
     }
+
+    .header-nav {
+      margin-left: auto;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  @include media-breakpoint-down(xs) {
+    .titles {
+      display: none !important;
+    }
   }
 }

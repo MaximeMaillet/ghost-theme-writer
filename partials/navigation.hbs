@@ -1,0 +1,7 @@
+<nav class="d-flex flex-row flex-wrap {{class}}">
+    {{#foreach navigation}}
+        <div class="nav-item nav-{{slug}}{{#if current}} nav-current{{/if}}">
+            <a href="{{url absolute="true"}}">{{label}}</a>
+        </div>
+    {{/foreach}}
+</nav>

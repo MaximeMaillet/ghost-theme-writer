@@ -1,0 +1,37 @@
+routes:
+  /:
+    data: page.home
+    template: home
+
+collections:
+  /nouvelles/:
+    permalink: /nouvelles/{slug}/
+    template: list
+    filter: tag:short-story
+
+  /chroniques/:
+    permalink: /chroniques/{slug}/
+    template: list
+    filter: tag:chronicles
+
+  /romans/:
+    permalink: /romans/{slug}/
+    template: list
+    filter: tag:novels
+
+  /theatres/:
+    permalink: /theatres/{slug}/
+    template: list
+    filter: tag:theaters
+
+  /scenarios/:
+    permalink: /scenarios/{slug}/
+    template: list
+    filter: tag:scenarios
+
+  /articles/:
+    permalink: /articles/{slug}/
+    template: list
+
+taxonomies:
+  tag: /livres/{slug}/

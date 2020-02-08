@@ -1,28 +1,11 @@
 .post {
-  &.top-icon {
-    .post-titles {
-      @extend %fa-icon;
-      @extend .fas;
-
-      &:before {
-        color: $white;
-        font-size: 1.8em;
-        margin-right: 5px;
-        position: absolute;
-        left: -40px;
-        border-radius: 50%;
-        height: 50px;
-        width: 50px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-    }
-  }
-
   .post-titles {
     padding: 1em;
-    position: relative;
+    h1 {
+      font-size: 2.5em;
+      padding: 0;
+      margin: 0;
+    }
 
     & {
       @include media-breakpoint-down(sm) {
@@ -271,173 +254,10 @@
       }
     }
   }
-
-  &.shorts-story {
-    h1 {
-      color: $short-story-color;
-    }
-    .post-titles {
-      &:before {
-        content: fa-content($fa-var-file-alt);
-        background-color: $short-story-color;
-      }
-    }
-  }
-
-  &.novels {
-    .post-titles {
-      h1 {
-        color: $novels-color;
-      }
-      &:before {
-        content: fa-content($fa-var-book-open);
-        background-color: $novels-color;
-      }
-    }
-  }
-
-  &.chronicles {
-    .post-titles {
-      h1 {
-        color: $chronicles-color;
-      }
-      &:before {
-        content: fa-content($fa-var-newspaper);
-        background-color: $chronicles-color;
-      }
-    }
-  }
-
-  &.theaters {
-    .post-titles {
-      h1 {
-        color: $theaters-color;
-      }
-      &:before {
-        content: fa-content($fa-var-theater-masks);
-        background-color: $theaters-color;
-      }
-    }
-  }
-
-  &.scenarios {
-    .post-titles {
-      h1 {
-        color: $scenarios-color;
-      }
-      &:before {
-        content: fa-content($fa-var-film);
-        color: $white;
-        background-color: $scenarios-color;
-      }
-    }
-  }
 }
 
 .posts-list {
   .article {
-    margin-bottom: 1em;
-    border-radius: $borderRadius;
-    overflow: hidden;
-    display: flex;
-    flex-direction: row;
-    min-height: 20rem;
-
-    .article-image {
-      background-size: cover;
-      background-position: center;
-      flex: 1;
-    }
-
-    .article-body {
-      padding: 1em;
-      flex:2;
-      background-color: $white;
-
-      .article-header {
-        color: $gray;
-        font-size: 0.8em;
-
-        .article-infos {
-          white-space: nowrap;
-
-          img {
-            height: 50px;
-            width: auto;
-            border-radius: 50%;
-            border: 1px solid $gray;
-          }
-
-          p {
-            margin: 0 0 0 1em;
-            padding: 0;
-
-            strong {
-              text-transform: uppercase;
-            }
-          }
-        }
-      }
-
-      .article-excerpt {
-        margin-top: 1em;
-
-        h3 {
-          color: $primary;
-          font-size: 2em;
-        }
-
-        p {
-          font-size: 1em;
-          text-align: justify;
-        }
-      }
-    }
-
-    .article-tags {
-      flex-wrap: wrap;
-
-      .tag-item {
-        border-radius: 5px;
-        box-shadow: 1px 2px 2px $black-light;
-        font-size: 0.8em;
-        font-weight: $fontWeightLight;
-        padding: 0.5em 1em;
-        margin: 0.2em;
-        white-space: nowrap;
-      }
-    }
-
-    &.tag-short-story {
-      .tag-item {
-        @include label-shorts-story();
-      }
-    }
-
-    &.tag-chronicles {
-      .tag-item {
-        @include label-chronicles();
-      }
-    }
-
-    &.tag-novels {
-      .tag-item {
-        @include label-novels();
-      }
-    }
-
-    &.tag-theaters {
-      .tag-item {
-        @include label-theaters();
-      }
-    }
-
-    &.tag-scenarios {
-      .tag-item {
-        @include label-scenarios();
-      }
-    }
-
     & {
       @include media-breakpoint-down(sm) {
         flex-direction: column;
@@ -467,6 +287,366 @@
           .article-tags {
             display: none !important;
           }
+        }
+      }
+    }
+  }
+}
+
+.article-list {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  margin: 0 -0.5em 0 -0.5em;
+
+  .article {
+    position: relative;
+    flex-grow: 1;
+    margin-bottom: 1em;
+
+    &:before {
+      position: absolute;
+      right: 0.5em;
+      top: -1em;
+      z-index: 4;
+      font-size: 1.5em;
+      padding: 10px;
+      border-radius: 50%;
+    }
+
+    .article-image {
+      flex-basis: 40%;
+      background-size: cover;
+      background-position: center;
+      background-color: $black-light;
+    }
+
+    .article-body {
+      flex-basis: 60%;
+      display: flex;
+      flex-direction: column;
+      padding: 1em;
+      background-color: $white;
+
+      .article-header {
+        color: $gray;
+        font-size: 0.8em;
+
+        .primary-author {
+          .primary-author-image {
+            height: 50px;
+          }
+        }
+
+        .article-infos {
+          white-space: nowrap;
+
+          img {
+            height: 30px;
+            width: auto;
+            border-radius: 50%;
+            border: 1px solid $gray;
+          }
+
+          p {
+            margin: 0 0 0 1em;
+            padding: 0;
+
+            strong {
+              text-transform: uppercase;
+            }
+          }
+        }
+      }
+
+      .article-title {
+        margin-top: 1em;
+        h3 {
+          a {
+            font-size: 1.6em;
+            font-weight: $fontWeightMedium;
+            color: $primary;
+
+            &:hover {
+              color: $primary;
+            }
+          }
+        }
+      }
+
+      .article-excerpt {
+        margin: 0 0 3em 0;
+        font-size: 0.8em;
+        p {
+          color: $gray;
+          text-align: justify;
+        }
+      }
+
+      .article-tags {
+        display: none !important;
+        flex-wrap: wrap;
+
+        .tag-item {
+          border-radius: 5px;
+          box-shadow: 1px 2px 2px $black-light;
+          font-size: 0.8em;
+          font-weight: $fontWeightLight;
+          padding: 0.5em 1em;
+          margin: 0.2em;
+          white-space: nowrap;
+        }
+      }
+    }
+
+    .article-footer {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      padding: 1em;
+      left: 0;
+      width: 100%;
+    }
+
+    &.post {
+      margin: 0 0.5em 1em 0.5em;
+      border-width: 10px;
+      border-style: solid;
+    }
+
+    &.tag-short-story {
+      border-color: $short-story-color;
+      flex-basis: 35%;
+      flex-shrink: 2;
+
+      &:before {
+        @include icon-shorts-story();
+        @include label-shorts-story();
+      }
+
+      .article-body {
+        .article-title {
+          h3,a {
+            color: $short-story-color;
+          }
+        }
+      }
+
+      .article-footer {
+        a {
+          background-color: $short-story-color;
+          border-color: $short-story-color;
+        }
+      }
+    }
+
+    &.tag-chronicles {
+      border-color: $chronicles-color;
+      flex-basis: 20%;
+      flex-shrink: 5;
+
+      &:before {
+        @include icon-chronicles();
+        @include label-chronicles();
+      }
+
+      .article-image {
+        position:absolute;;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 2;
+        @include opacity-image();
+      }
+
+      .article-body {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        height: 100%;
+        z-index: 3;
+        padding: 0;
+        background-color: transparent;
+
+        .article-header {
+          position: absolute;
+          bottom: 3rem;
+          left: 0;
+          right: 0;
+          z-index: 4;
+          order: 2;
+          justify-content: center !important;
+          .primary-author {
+            margin: 0;
+            text-align: center;
+            .primary-author-image {
+              display: none;
+            }
+
+            .primary-author-reading-time {display: none;}
+          }
+        }
+
+        .article-title {
+          position: absolute;
+          bottom: 5rem;
+          left: 0;
+          right: 0;
+          z-index: 4;
+          order: 1;
+          h3, a {
+            color: $chronicles-color;
+            font-weight: $fontWeightSemiBold;
+            font-size: 1.2em;
+            text-align: center;
+          }
+        }
+
+        .article-tags {
+          display: flex !important;
+          position: absolute;
+          top: 3rem;
+          width: 100%;
+          font-size: 0.8em;
+          justify-content: center;
+          align-items: center;
+
+          .tag-item {
+            @include label-chronicles();
+          }
+        }
+
+        .article-excerpt {
+          display: none !important;
+        }
+      }
+
+      .article-footer {
+        display: none;
+      }
+
+      &:hover {
+        border-color: $primary;
+        &:before {
+          background-color: $primary;
+        }
+
+        .article-tags {
+          .tag-item {
+            background-color: $primary;
+          }
+        }
+
+        .article-title {
+          a {
+            color: $primary;
+          }
+        }
+      }
+    }
+
+    &.tag-novels {
+      border-color: $novels-color;
+      flex-basis: 60%;
+      flex-shrink: 1;
+
+      &:before {
+        @include icon-novels();
+        @include label-novels();
+      }
+
+      .article-body {
+        .article-title {
+          h3,a {
+            color: $novels-color;
+          }
+        }
+      }
+
+      .article-footer {
+        a {
+          background-color: $novels-color;
+          border-color: $novels-color;
+        }
+      }
+    }
+
+    &.tag-theaters {
+      border-color: $theaters-color;
+      flex-basis: 35%;
+      flex-shrink: 1;
+
+      &:before {
+        @include icon-theaters();
+        @include label-theaters();
+      }
+
+      .article-body {
+        .article-title {
+          h3,a {
+            color: $theaters-color;
+          }
+        }
+      }
+
+      .article-footer {
+        a {
+          background-color: $theaters-color;
+          border-color: $theaters-color;
+        }
+      }
+    }
+
+    &.tag-scenarios {
+      border-color: $scenarios-color;
+      flex-basis: 65%;
+      flex-shrink: 1;
+
+      &:before {
+        @include icon-scenarios();
+        @include label-scenarios();
+      }
+
+      .article-body {
+        .article-title {
+          h3,a {
+            color: $scenarios-color;
+          }
+        }
+      }
+
+      .article-footer {
+        a {
+          background-color: $scenarios-color;
+          border-color: $scenarios-color;
+        }
+      }
+    }
+
+    &.tag-articles {
+      border-color: $articles-color;
+      flex-basis: 20%;
+      flex-shrink: 3;
+
+      &:before {
+        @include icon-articles();
+        @include label-articles();
+      }
+
+      .article-body {
+        .article-title {
+          h3,a {
+            color: $articles-color;
+          }
+        }
+      }
+
+      .article-footer {
+        a {
+          background-color: $articles-color;
+          border-color: $articles-color;
         }
       }
     }

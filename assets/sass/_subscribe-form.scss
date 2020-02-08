@@ -1,21 +1,63 @@
 .subscribe-form {
   .message-success, .message-error {
     display: none;
+    margin-top: 0.5em;
+    font-size: 0.8em;
   }
+  .error > .message-error {display: block;}
+  .success > .message-success {display: block;}
 
-  .error {
-    .message-error {
-      display: block;
-    }
+  .message-success {
+    color: $green;
   }
-
-  .success {
-    .message-success {
-      display: block;
-    }
+  .message-error {
+    color: $red;
   }
 
   .loading {
 
+  }
+}
+
+.popup-subscribe-form {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+  background-color: rgba(0,0,0,0.9);
+  padding: 0 1rem;
+  font-size: 2em;
+  transition: all 1s;
+  overflow: hidden;
+
+  &.off {
+    bottom: 100%;
+  }
+
+  &.on {
+    bottom: 0;
+  }
+
+  .close {
+    color: $white;
+    font-size: 1.2em;
+    padding: 1rem;
+  }
+
+  h5 {
+    margin-top: 5rem;
+    font-size: 1em;
+    color: $primary;
+    white-space: nowrap;
+    text-align: center;
+  }
+
+  p {
+    font-size: 0.8em;
+    color: $white;
+    margin-top: 2em;
+    text-align: center;
   }
 }

@@ -1,103 +1,68 @@
 {{!< default}}
 
-<div class="container-fluid page-home">
-    <div class="row d-flex flex-row align-items-start justify-content-start home-screen" style="background-image: url('{{@site.cover_image}}')">
-        <div class="d-flex flex-row w-100">
-            <div class="home-link">
-                <a href="{{@site.url}}">
-                    <img class="logo-img" src="{{img_url @site.logo size="l"}}" alt="{{@site.title}}" />
-                </a>
-            </div>
-            <div class="titles d-flex align-items-start justify-content-center flex-column">
-                <h2>{{@site.description}}</h2>
-                <h1>{{@site.title}}</h1>
-            </div>
-            <div class="ml-auto">
-                {{navigation}}
-            </div>
-            <div class="ml-auto align-items-center justify-content-center subscribe-link">
-                <a href="#">Subscribe</a>
+<div class="container-fluid background-white container-home {{body_class}}">
+    <div class="row home-screen" style="background-image: url('{{@site.cover_image}}')">
+        <div class="container d-flex flex-column">
+            {{navigation class="mt-3 align-items-center justify-content-center home-nav"}}
+            <div class="mt-3 d-flex flex-row align-items-center justify-content-center ">
+                <div class="logo-door">
+                    <a href="{{@site.url}}">
+                        <img class="logo-img" src="{{img_url @site.logo size="l"}}" alt="{{@site.title}}" />
+                    </a>
+                </div>
+                <div class="d-flex flex-column home-screen-titles">
+                    <h2>{{@site.description}}</h2>
+                    <h1>{{@site.title}}</h1>
+                </div>
+                <div class="ml-auto subscribe-link">
+                    <a id="home-screen-button-subscribe" class="btn btn-primary" href="#">Newsletter</a>
+                </div>
             </div>
         </div>
     </div>
     <div class="container">
-        <div class="home-presentation">
-            <div class="custom-block container-white chronicles">
-                <h4>Chroniques</h4>
-                {{#get "posts" filter="tags:chronicles" include="tags,authors" limit="5"}}
-                    {{#foreach posts}}
-                        <a href="{{url}}" class="d-flex flex-row chronicles-item {{tags.1.slug}}">
-                            <div class="d-flex flex-column">
-                                <div class="chronicles-title">
-                                    {{title}}
-                                </div>
-                                <div class="chronicles-name">
-                                    {{tags.1.name}}
-                                </div>
-                            </div>
-                            <div class="ml-auto d-flex flex-column align-items-end justify-content-end">
-                                <div class="chronicles-author">{{primary_author.name}}</div>
-                                <time class="chronicles-date" datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMMM YYYY"}}</time>
-                            </div>
-                        </a>
-                    {{/foreach}}
-                {{/get}}
-            </div>
-            <div class="d-flex flex-column infos">
-                <div class="custom-block container-white newsletter">
-                    <h4>Newsletter</h4>
-                    {{> subscribe-form}}
+        <div class="row home-presentation">
+            <div class="col-md-12 col-lg-8">
+                <div class="custom-round-block background-white presentation-chronicles">
+                    <h4>Chroniques</h4>
+                    {{> get-chronicles }}
                 </div>
-                <div class="custom-block container-white presentation">
-                    {{#page}}
-                        <h4>{{title}}</h4>
-                        <p>{{content}}</p>
-                    {{/page}}
+            </div>
+            <div class="col-4">
+                <div class="d-flex flex-column presentation-infos">
+                    <div class="custom-round-block background-white infos-newsletter">
+                        <h4>Newsletter</h4>
+                        {{> subscribe-form}}
+                    </div>
+                    <div class="mt-4 custom-round-block background-white infos-presentation">
+                            {{#page}}
+                            <h4>{{title}}</h4>
+                            <p>{{content}}</p>
+                            {{/page}}
+                    </div>
                 </div>
             </div>
         </div>
-
-        <div class="d-flex flex-row home-content">
-            <div class="content-center w-100 mr-3 posts-list">
-                {{#get "posts" limit="20" order="created_at desc" filter="tags:[chronicles,short-story,novels,theaters,scenarios,articles]" include="authors,tags"}}
-                    {{#foreach posts}}
-                        <div class="{{post_class}} custom-block article">
-                            <div class="article-image" style="background-image: url('{{feature_image}}')"></div>
-                            <div class="article-body">
-                                <div class="d-flex flex-row align-items-center justify-content-start article-header">
-                                    <div class="d-flex flex-row align-items-center justify-content-center article-infos">
-                                        {{> primary-author reading-time=true}}
-                                    </div>
-                                </div>
-                                <div class="article-excerpt">
-                                    <h3><a href="{{url}}">{{title}}</a></h3>
-                                    <p>{{excerpt}}</p>
-                                </div>
-                                <div class="d-flex flex-row mt-1 mb-1 article-tags">
-                                    {{#foreach tags}}
-                                        <div class="tag-item">{{name}}</div>
-                                    {{/foreach}}
-                                </div>
-                                <div class="mt-auto article-footer">
-                                    <a href="{{url}}" class="btn btn-primary btn-block">Lire</a>
-                                </div>
-                            </div>
-                        </div>
-                    {{/foreach}}
-                {{/get}}
+        <div class="row home-content">
+            <div class="col-md-12 col-lg-12">
+                {{> get-posts }}
             </div>
-            <div class="content-right ml-auto">
-                {{> pub class="home-pub"}}
-                <div class="custom-block p-3 home-social">
-                    <h5>Réseaux sociaux :</h5>
-                    {{> social-links}}
-                </div>
-                <div class="custom-block p-3 home-article">
-                    <h5>Articles :</h5>
-                    {{> post-alone}}
+        </div>
+        <div class="row home-footer">
+            <div class="col-lg-6">
+                {{> pub class="footer-pub" }}
+            </div>
+            <div class="col-lg-6">
+                <div class="d-flex flex-row h-100">
+                    <div class="custom-round-block footer-social">
+                        <h5>Réseaux sociaux :</h5>
+                        {{> social-links}}
+                    </div>
+                    <div class="custom-round-block footer-articles">
+                        {{> post-alone title="Articles :" class="home-article" }}
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-

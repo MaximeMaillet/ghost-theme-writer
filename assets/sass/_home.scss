@@ -1,4 +1,4 @@
-.page-home {
+.container-home {
   $heightHomeScreen: 25rem;
 
   div.home-screen {
@@ -7,132 +7,56 @@
     background-repeat: no-repeat;
     background-position: center;
     box-shadow: 0 2px 10px $black;
-    background-color: $black;
-    padding: 1em;
+    background-color: $black-light;
 
-    .home-link {
-      height: 5em;
-      overflow: hidden;
-      position: relative;
-      border-radius: 50%;
-
-      &:before {
-        content: '';
-        position: absolute;
-        left: 0;
-        top: -2.55em;
-        height: 2.5em;
-        width: 100%;
-        background-color: $primary;
-        transition: top 0.6s;
-        opacity: 0.8;
-      }
-
-      &:after {
-        content: '';
-        position: absolute;
-        left: 0;
-        bottom: -2.5em;
-        height: 2.5em;
-        width: 100%;
-        background-color: $primary;
-        transition: bottom 0.6s;
-        opacity: 0.8;
-      }
-
-      &:hover {
-        &:before {
-          top: 0;
-        }
-        &:after {
-          bottom: 0;
-        }
-      }
-
-      img.logo-img {
-        border-radius: 50%;
-        width: auto;
-        height: 100%;
-      }
-    }
-
-    .titles {
+    .home-screen-titles {
       margin-left:1em;
+      @media (max-width: 450px) {
+        display: none !important;
+      }
 
       h2 {
-        color: $primary;
         font-weight: $fontWeightLight;
         margin: 0;
-        font-size: 0.8em;
+        font-size: 0.9em;
       }
 
       h1 {
         text-transform: uppercase;
-        color: $primary;
-        font-weight: $fontWeightMedium;
         margin: 0;
-        font-size: 1.5em;
       }
     }
 
     .subscribe-link {
-      display: none;
-
-      & {
-        @include media-breakpoint-down(md) {
-          display: inline-flex;
-        }
-
-
-        @media (max-width: 410px) {
-          display: none;
-        }
-      }
-
-      a {
-        border: 1px solid $primary;
-        border-radius: $borderRadius;
-        padding: 0.5em;
-        font-size: 0.8em;
-
-        &:hover {
-          text-decoration: none;
-          background-color: $primary;
-        }
+      visibility: hidden;
+      @include media-breakpoint-down(md) {
+        visibility: visible;
       }
     }
   }
 
   div.home-presentation {
-    margin-top: homeScreenMarginTop($heightHomeScreen, 30rem);
-    margin-bottom:1rem;
-    display: flex;
-    flex-direction: row;
+    margin-top: homeScreenMarginTop($heightHomeScreen, 50rem);
 
-    & {
-      @include media-breakpoint-down(lg) {
-        margin-top: homeScreenMarginTop($heightHomeScreen, 50rem);
-      }
-
-      @include media-breakpoint-down(md) {
-        flex-direction: column;
-        margin-top: homeScreenMarginTop($heightHomeScreen, 70rem);
-      }
+    @include media-breakpoint-down(lg) {
+      margin-top: homeScreenMarginTop($heightHomeScreen, 60rem);
     }
 
-    h4 {
-      font-size: 1.2em;
-      color: $primary;
+    @include media-breakpoint-down(md) {
+      margin-top: homeScreenMarginTop($heightHomeScreen, 50rem);
+      flex-direction: column;
     }
 
-    .chronicles {
-      padding: 1em;
-      margin-right: 1em;
-      min-width: 60%;
+    @include media-breakpoint-down(sm) {
+      margin-top: homeScreenMarginTop($heightHomeScreen, 60rem);
+    }
+
+    .presentation-chronicles {
+      height: 100%;
 
       .chronicles-item {
         margin: 0 0 1em 0;
-        border-bottom: 1px solid $gray;
+        border-bottom: 1px solid $gray-light;
         padding-bottom: 0.5em;
 
         &:last-child {
@@ -142,11 +66,8 @@
         .chronicles-title {
           font-size: 1.2em;
           color: $black-light;
-          @extend %fa-icon;
-          @extend .fas;
-
           &:before {
-            content: fa-content($fa-var-newspaper);
+            @include icon-chronicles();
           }
         }
 
@@ -167,32 +88,21 @@
         }
 
         &:hover {
-          text-decoration: none;
-          .chronicles-title {
-            color: $primary;
+          .chronicles-title, .chronicles-author {
+            color: $chronicles-color;
           }
         }
       }
     }
 
-    .infos {
-      & {
-        @include media-breakpoint-down(md) {
-          display: none !important;
-        }
+    .presentation-infos {
+      height: 100%;
+      @include media-breakpoint-down(md) {
+        display: none !important;
       }
 
-      .presentation {
-        padding: 1em;
-        margin-top: 1em;
+      .infos-presentation {
         height: 100%;
-
-        h3 {
-          color: $primary;
-          font-size: 1em;
-          margin: 0;
-        }
-
         p {
           margin: 1em 0;
           font-size: 0.8em;
@@ -200,47 +110,74 @@
           text-align: justify;
         }
       }
-
-      .newsletter {
-        padding:1em;
-      }
     }
   }
 
-  div.home-content {
-    margin: 3rem 0 0 0;
+  div.home-content{
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding-top: 1em;
+    position: relative;
 
-    .content-center {
+    &:before, &:after {
+      content: '';
+      position: absolute;
+      height: 1px;
+      background-color: $gray-light;
+      left: 10%;
+      right: 10%;
     }
 
-    .content-right {
-      width: 40%;
-      margin-left: 1em;
+    &:before {
+      top:0;
+    }
 
-      & {
-        @include media-breakpoint-down(md) {
-          display: none;
-        }
-      }
+    &:after {
+      bottom:0;
+    }
+  }
 
-      div[class*="home"] {
-        margin-bottom: 1em;
-      }
+  div.home-footer {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
 
-      h5 {
-        font-size: 1em;
-        color: $primary;
-      }
+    div[class*="footer-"] {
+      height: 100%;
+    }
 
-      .home-social {
-        a {
-          font-size: 2em;
-          color: $gray;
+    .footer-pub {
+      .pub {
+        height: 100%;
+        display: flex;
+        flex-direction: row;
 
-          &:hover {
-            color: $primary;
+        .content {
+          margin-right: 1em;
+
+          &:last-child {
+            margin-right: 0;
           }
         }
+      }
+    }
+
+    .footer-social, .footer-articles {
+      height: 100%;
+      flex-grow: 1;
+      a {
+        color: $gray;
+        &:hover {
+          color: $primary;
+        }
+      }
+    }
+
+    .footer-social {
+      margin-right: 1em;
+      a {
+        font-size: 2em;
       }
     }
   }

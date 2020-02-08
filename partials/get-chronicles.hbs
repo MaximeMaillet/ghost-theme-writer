@@ -1,0 +1,18 @@
+{{#get "posts" filter="tags:chronicles" include="tags,authors" limit="5"}}
+    {{#foreach posts}}
+        <a href="{{url}}" class="d-flex flex-row chronicles-item {{tags.1.slug}}">
+            <div class="d-flex flex-column">
+                <div class="chronicles-title">
+                    {{title}}
+                </div>
+                <div class="chronicles-name">
+                    {{tags.1.name}}
+                </div>
+            </div>
+            <div class="ml-auto d-flex flex-column align-items-end justify-content-end">
+                <div class="chronicles-author">{{primary_author.name}}</div>
+                <time class="chronicles-date" datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMMM YYYY"}}</time>
+            </div>
+        </a>
+    {{/foreach}}
+{{/get}}

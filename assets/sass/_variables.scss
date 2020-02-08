@@ -4,6 +4,8 @@
 $purple: #48455D;
 $blue: #71C1E9;
 $yellow: #F7CD54;
+$brown: #A9927D;
+$orange: #FA8334;
 $red: #F26659;
 $green: #79C4BD;
 $white: #fff;
@@ -17,10 +19,13 @@ $gray-light: #D3D3D3;
 $black-light: #191b1f;
 
 $primary: #D81E5B;
+$secondary: $green;
+
+$articles-color: $brown;
 $chronicles-color: $green;
 $short-story-color: $purple;
 $novels-color: $red;
-$theaters-color: $yellow;
+$theaters-color: $orange;
 $scenarios-color: $blue;
 
 /**
@@ -43,7 +48,8 @@ $borderRadius: 10px;
 /**
  * Sizes
  */
-$heightBackgroundFluidImage: 25rem;
+$heightBackgroundFluidImage: 35rem;
+$smallHeightBackgroundFluidImage: 25rem;
 
 /**
  * Functions
@@ -56,27 +62,12 @@ $heightBackgroundFluidImage: 25rem;
   margin-top: homeScreenMarginTop($heightBackgroundFluidImage, $percent);
 }
 
-@mixin label-chronicles() {
-  background-color: $chronicles-color;
-  color: $black-light;
-}
-
-@mixin label-shorts-story() {
-  background-color: $short-story-color;
-  color: $white;
-}
-
-@mixin label-novels() {
-  background-color: $novels-color;
-  color: $white;
-}
-
-@mixin label-theaters() {
-  background-color: $theaters-color;
-  color: $black-light;
-}
-
-@mixin label-scenarios() {
-  background-color: $scenarios-color;
-  color: $black-light;
+@mixin opacity-image() {
+  &:after {
+    content: '';
+    display: block;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,0.6);
+  }
 }

@@ -1,0 +1,157 @@
+@mixin label-articles() {
+  background-color: $articles-color;
+  color: $white;
+}
+
+@mixin label-chronicles() {
+  background-color: $chronicles-color;
+  color: $black-light;
+}
+
+@mixin label-shorts-story() {
+  background-color: $short-story-color;
+  color: $white;
+}
+
+@mixin label-novels() {
+  background-color: $novels-color;
+  color: $white;
+}
+
+@mixin label-theaters() {
+  background-color: $theaters-color;
+  color: $white;
+}
+
+@mixin label-scenarios() {
+  background-color: $scenarios-color;
+  color: $black-light;
+}
+
+@mixin icon-articles() {
+  @extend %fa-icon;
+  @extend .fas;
+  content: fa-content($fa-var-file-alt);
+}
+
+@mixin icon-shorts-story() {
+  @extend %fa-icon;
+  @extend .fas;
+  content: fa-content($fa-var-feather-alt);
+}
+
+@mixin icon-novels() {
+  @extend %fa-icon;
+  @extend .fas;
+  content: fa-content($fa-var-book-open);
+}
+
+@mixin icon-chronicles() {
+  @extend %fa-icon;
+  @extend .fas;
+  content: fa-content($fa-var-newspaper);
+}
+
+@mixin icon-theaters() {
+  @extend %fa-icon;
+  @extend .fas;
+  content: fa-content($fa-var-theater-masks);
+}
+
+@mixin icon-scenarios() {
+  @extend %fa-icon;
+  @extend .fas;
+  content: fa-content($fa-var-film);
+}
+
+.top-icon {
+  .post-titles {
+    position: relative;
+    &:before {
+      color: $white;
+      font-size: 1.8em;
+      margin-right: 5px;
+      position: absolute;
+      left: -40px;
+      border-radius: 50%;
+      height: 50px;
+      width: 50px;
+      display: flex !important;
+      align-items: center;
+      justify-content: center;
+      align-self: center;
+    }
+  }
+
+  &.articles {
+    h1 {
+      color: $articles-color;
+    }
+    .post-titles {
+      &:before {
+        @include icon-articles();
+        @include label-articles();
+      }
+    }
+  }
+
+  &.shorts-story {
+    h1 {
+      color: $short-story-color;
+    }
+    .post-titles {
+      &:before {
+        @include icon-shorts-story();
+        @include label-shorts-story();
+      }
+    }
+  }
+
+  &.novels {
+    .post-titles {
+      h1 {
+        color: $novels-color;
+      }
+      &:before {
+        @include icon-novels();
+        @include label-novels();
+      }
+    }
+  }
+
+  &.chronicles {
+    .post-titles {
+      h1 {
+        color: $chronicles-color;
+      }
+      &:before {
+        @include icon-chronicles();
+        @include label-chronicles();
+      }
+    }
+  }
+
+  &.theaters {
+    .post-titles {
+      h1 {
+        color: $theaters-color;
+      }
+      &:before {
+        @include icon-theaters();
+        @include label-theaters()
+      }
+    }
+  }
+
+  &.scenarios {
+    .post-titles {
+      h1 {
+        color: $scenarios-color;
+      }
+      &:before {
+        @include icon-scenarios();
+        @include label-scenarios();
+      }
+    }
+  }
+}

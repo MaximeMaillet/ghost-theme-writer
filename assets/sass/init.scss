@@ -11,9 +11,12 @@ $fa-font-path: "./webfonts";
 @import "node_modules/@fortawesome/fontawesome-free/scss/solid";
 @import "node_modules/@fortawesome/fontawesome-free/scss/v4-shims";
 
+@import "icons";
+@import "logo";
 @import "base";
 @import "footer";
 @import "header";
+@import "navigation";
 @import "subscribe-form";
 @import "pub";
 @import "home";
@@ -21,3 +24,4 @@ $fa-font-path: "./webfonts";
 @import "short-story-collection";
 
 @import "post-universal";
+@import "tag-ignoring";
