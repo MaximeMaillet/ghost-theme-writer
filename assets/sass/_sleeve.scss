@@ -1,0 +1,140 @@
+.sleeve {
+  height: 25em;
+  width: auto;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 5px 10px $black-light;
+  background-color: $black-light;
+  @include opacity-image();
+
+  &:hover {
+    box-shadow: none;
+    &:after {
+      background: none;
+    }
+  }
+
+  a.sleeve-titles {
+    position: absolute;
+    bottom: 0;
+    left:0;
+    right:0;
+    text-decoration: none;
+    text-align: center;
+    font-size: 1.5em;
+
+    .title {
+      font-size:1em;
+      color: $white;
+    }
+
+    .author {
+      color: $gray;
+      font-size: 0.8em;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+    }
+
+    .date {
+      padding: 1em;
+      text-align: right;
+      font-size: 0.7em;
+      color: $white;
+    }
+
+    &:hover {
+      .title {
+        color: $primary;
+      }
+    }
+  }
+
+  .sleeve-tags {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 1em;
+
+    .sleeve-label {
+      font-size: 0.6em;
+      background-color: $white;
+      border-radius: $borderRadius;
+      padding: 0.5em;
+      color: $white;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
+  &.tag-short-story {
+    .sleeve-label {
+      @include label-shorts-story();
+    }
+  }
+
+  &.tag-chronicles {
+    .sleeve-label {
+      @include label-chronicles();
+    }
+  }
+
+  &.tag-novels {
+    .sleeve-label {
+      @include label-novels();
+    }
+  }
+
+  &.tag-theaters {
+    .sleeve-label {
+      @include label-theaters();
+    }
+  }
+
+  &.tag-scenarios {
+    .sleeve-label {
+      @include label-scenarios();
+    }
+  }
+
+  &.tag-articles {
+    .sleeve-label {
+      @include label-articles();
+    }
+  }
+}
+
+.sleeve2 {
+  display: block;
+  height: 400px;
+  width: auto;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  box-shadow: 0 5px 10px $black-light;
+  background-color: $black-light;
+
+  &:hover {
+    box-shadow: none;
+    &:after {
+      background: none;
+    }
+  }
+
+  &:after {
+    content: '';
+    display: block;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,0.6);
+  }
+
+
+
+
+}

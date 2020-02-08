@@ -4,9 +4,16 @@
 
 {{#is "page"}}
 {{#post}}
-<div class="container pt-3 pb-3">
-    <h1>{{title}}</h1>
-    {{content}}
-</div>
+    {{^has tag="pub"}}
+        <div class="container pt-3 pb-3">
+            <h1>{{title}}</h1>
+            {{content}}
+        </div>
+    {{else}}
+        {{#contentFor "custom_meta_data"}}
+            <meta name="robots" content="noindex, nofollow">
+        {{/contentFor}}
+        404
+    {{/has}}
 {{/post}}
 {{/is}}

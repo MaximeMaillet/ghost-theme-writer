@@ -32,6 +32,11 @@ collections:
   /articles/:
     permalink: /articles/{slug}/
     template: list
+    filter: tag:articles
+
+  /autres/:
+    permalink: /autres/{slug}/
+    template: list
 
 taxonomies:
-  tag: /livres/{slug}/
+  tag: /recueils/{slug}/

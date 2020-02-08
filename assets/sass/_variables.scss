@@ -19,7 +19,9 @@ $gray-light: #D3D3D3;
 $black-light: #191b1f;
 
 $primary: #D81E5B;
+$primary-dark: darken($primary, 20%);
 $secondary: $green;
+$primary-secondary: darken($secondary, 20%);
 
 $articles-color: $brown;
 $chronicles-color: $green;
@@ -63,11 +65,14 @@ $smallHeightBackgroundFluidImage: 25rem;
 }
 
 @mixin opacity-image() {
-  &:after {
+  position: relative;
+  &:before {
     content: '';
-    display: block;
-    height: 100%;
-    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     background-color: rgba(0,0,0,0.6);
   }
 }

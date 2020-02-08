@@ -1,0 +1,30 @@
+<div class="sleeve {{post_class}}" style="background-image: url('{{feature_image}}')">
+    <a href="{{url}}" class="sleeve-titles">
+        <div class="title">{{ title }}</div>
+        <div class="author">{{ primary_author.name }}</div>
+        <div class="date"><time datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMMM YYYY"}}</time></div>
+    </a>
+    {{#if has_tags}}
+    <div class="sleeve-tags">
+        {{#has slug=slug tag="short-story"}}
+            {{#foreach tags}}
+                {{^has slug="chronicles"}}
+                    {{^has slug="short-story"}}
+                        {{^has slug="short-story-collection"}}
+                            {{^has slug="theaters"}}
+                                {{^has slug="novels"}}
+                                    {{^has slug="scenarios"}}
+                                        {{^has slug="articles"}}
+                                            <a href="{{url}}" class="sleeve-label">{{name}}</a>
+                                        {{/has}}
+                                    {{/has}}
+                                {{/has}}
+                            {{/has}}
+                        {{/has}}
+                    {{/has}}
+                {{/has}}
+            {{/foreach}}
+        {{/has}}
+    </div>
+    {{/if}}
+</div>

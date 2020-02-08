@@ -1,0 +1,20 @@
+{{!< default}}
+
+{{> header}}
+
+
+<div class="container-fluid">
+    {{> background-fluid background=@site.cover_image sm=true header="1"}}
+    <section class="container custom-round-block background-white-light container-on-background-image-sm pb-3 pt-3 mb-5 error-container">
+        <h1 class="error-code">{{statusCode}}</h1>
+        <h5 class="text-center font-italic">Un problème est survenu</h5>
+        <em>{{message}}</em>
+
+        {{{block "custom"}}}
+
+        <div class="mt-5">
+            {{> get-posts limit="5" }}
+        </div>
+    </section>
+</div>
+

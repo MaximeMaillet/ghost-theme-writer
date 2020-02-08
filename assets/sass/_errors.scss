@@ -1,0 +1,28 @@
+.error-container {
+  min-height: 30rem;
+
+  h1 {
+    font-size: 3em;
+    text-align: center;
+  }
+
+  .custom-404 {
+
+    .icon {
+      svg {
+        height: 10rem;
+      }
+
+      .credits {
+        font-size: 0.8em;
+        font-style: italic;
+        margin-top: 1em;
+      }
+    }
+    .text {
+      p {
+        font-size: 0.8em;
+      }
+    }
+  }
+}

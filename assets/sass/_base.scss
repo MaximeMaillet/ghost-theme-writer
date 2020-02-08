@@ -20,16 +20,40 @@ h3,h4,h5 {
   font-size: 1.2em;
 }
 
-
 a {
   color: $primary;
   text-decoration: none;
 }
+
 a:hover {
   color: $secondary;
   text-decoration: none;
 }
 
+.btn-arrow {
+  display: inline-block;
+  white-space: nowrap;
+
+  &:before, &:after {
+    @extend %fa-icon;
+    @extend .fas;
+    padding-top: 3px;
+  }
+
+  &.arrow-left {
+    &:before {
+      content: fa-content($fa-var-chevron-left);
+      margin-right: 1em;
+    }
+  }
+
+  &.arrow-right {
+    &:after {
+      content: fa-content($fa-var-chevron-right);
+      margin-left: 1em;
+    }
+  }
+}
 
 .background-black {background-color: $black;}
 .background-black-light {background-color: $black-light;}
@@ -57,7 +81,7 @@ a:hover {
     height: $heightBackgroundFluidImage;
   }
 
-  &.background-image-small {
+  &.background-image-small, &.background-image-sm {
     height: $smallHeightBackgroundFluidImage;
   }
 
@@ -79,7 +103,7 @@ a:hover {
   }
 }
 
-.container-on-background-image {
+.container-on-background-image, .container-on-background-image-lg {
   @include container-on-background-fluid-image(80rem);
 
   & {
@@ -89,7 +113,7 @@ a:hover {
   }
 }
 
-.container-on-background-image-small {
+.container-on-background-image-small, .container-on-background-image-sm {
   @include container-on-background-fluid-image(60rem);
 
   & {
@@ -123,119 +147,6 @@ a:hover {
     width: auto;
     border-radius: 50%;
     border: 1px solid $gray;
-  }
-}
-
-.sleeve {
-  display: block;
-  height: 400px;
-  width: auto;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  box-shadow: 0 5px 10px $black-light;
-  background-color: $black-light;
-
-  &:hover {
-    box-shadow: none;
-    &:after {
-      background: none;
-    }
-  }
-
-  &:after {
-    content: '';
-    display: block;
-    height: 100%;
-    width: 100%;
-    background-color: rgba(0,0,0,0.6);
-  }
-
-  &.tag-short-story {
-    .sleeve-label {
-      @include label-shorts-story();
-    }
-  }
-
-  &.tag-chronicles {
-    .sleeve-label {
-      @include label-chronicles();
-    }
-  }
-
-  &.tag-novels {
-    .sleeve-label {
-      @include label-novels();
-    }
-  }
-
-  &.tag-theaters {
-    .sleeve-label {
-      @include label-theaters();
-    }
-  }
-
-  &.tag-scenarios {
-    .sleeve-label {
-      @include label-scenarios();
-    }
-  }
-
-  .sleeve-tags {
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding: 1em;
-  }
-
-  .sleeve-label {
-    font-size: 0.6em;
-    background-color: $white;
-    border-radius: $borderRadius;
-    padding: 0.5em;
-    color: $white;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-
-    &:hover {
-      text-decoration: none;
-    }
-  }
-
-  .sleeve-titles {
-    display: block;
-    position: absolute;
-    text-decoration: none;
-    bottom: 0;
-    left:0;
-    right:0;
-    text-align: center;
-    padding: 1em;
-
-    .title {
-      font-size: 1.2em;
-      color: $white;
-    }
-
-    &:hover {
-      .title {
-        color: $primary;
-      }
-    }
-
-    .author {
-      color: $gray;
-      font-size: 0.8em;
-      text-transform: uppercase;
-      margin-bottom: 2rem;
-    }
-
-    .date {
-      text-align: right;
-      font-size: 0.6em;
-      color: $white;
-    }
   }
 }
 

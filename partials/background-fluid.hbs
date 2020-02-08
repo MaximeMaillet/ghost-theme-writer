@@ -1,6 +1,8 @@
-{{#if header}}
-    <div class="background-fluid-image background-image-small background-fluid-image-header" style="background-image: url('{{background}}')"></div>
-{{/if}}
-{{#if footer}}
-    <div class="background-fluid-image background-image-small background-fluid-image-footer" style="background-image: url('{{background}}')"></div>
-{{/if}}
+<div
+    class="background-fluid-image
+        {{#if lg}}background-image-lg{{/if}}
+        {{#if sm}}background-image-sm{{/if}}
+        {{#if header}}background-fluid-image-header{{/if}}
+        {{#if footer}}background-fluid-image-footer{{/if}}"
+    style="background-image: url('{{background}}')"
+></div>

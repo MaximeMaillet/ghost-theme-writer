@@ -1,10 +1,10 @@
 {{#get "posts" limit="20" order="created_at desc" filter="tags:-[config,chronicles,short-story,novels,theaters,scenarios,articles]" include="authors,tags"}}
-    {{#if posts}}
-        <div class="{{../class}}">
-            <h5>{{../title}}</h5>
-            {{#foreach posts}}
-                <a href="{{url}}">{{title}}</a><br />
-            {{/foreach}}
-        </div>
-    {{/if}}
+    <div class="{{../class}}">
+        <h5>{{../title}}</h5>
+        {{#foreach posts}}
+            <a href="{{url}}">{{title}}</a><br />
+        {{else}}
+            <em>Pas encore d'article...</em>
+        {{/foreach}}
+    </div>
 {{/get}}

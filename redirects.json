@@ -1,0 +1,47 @@
+[
+  {
+    "from": "/footer-links/",
+    "to":  "/",
+    "permanent": true
+  },
+  {
+    "from": "/livres/scenarios/",
+    "to":  "/scenarios",
+    "permanent": true
+  },
+  {
+    "from": "/livres/theaters/",
+    "to":  "/theatres",
+    "permanent": true
+  },
+  {
+    "from": "/livres/articles/",
+    "to":  "/articles",
+    "permanent": true
+  },
+  {
+    "from": "/livres/chronicles/",
+    "to":  "/chroniques",
+    "permanent": true
+  },
+  {
+    "from": "/livres/short-story/",
+    "to":  "/nouvelles",
+    "permanent": true
+  },
+  {
+    "from": "/livres/short-story-collection/",
+    "to":  "/nouvelles",
+    "permanent": true
+  },
+  {
+    "from": "/livres/novels/",
+    "to":  "/romans",
+    "permanent": true
+  },
+  {
+    "from": "/livres/pub/",
+    "to": "/",
+    "permanent": true
+  }
+]

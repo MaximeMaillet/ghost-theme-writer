@@ -8,11 +8,11 @@
   }
 
   div.tag-titles {
-    margin: 1em 1em 0 1em;
+    margin-left: 1em;
 
     h1 {
       font-size: 1.5em;
-      margin: 0;
+      margin: 0.5em 0 0 0;
     }
 
     h2 {
@@ -21,54 +21,14 @@
     }
   }
 
-  .posts {
-    a.post {
-      display: block;
-      position: relative;
-      height: 200px;
-      width: 150px;
+  .tag-sleeves {
+    font-size: 0.7em;
+    flex-wrap: nowrap;
+    .sleeve {
+      flex-grow: 1;
       margin-right: 1em;
-
-      &:last-of-type {
+      &:last-child {
         margin-right: 0;
-      }
-
-      &:hover {
-        .image:after {
-          display: none;
-        }
-      }
-
-      .image {
-        height: 100%;
-        width: 100%;
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
-
-        &:after {
-          content: '';
-          display: block;
-          height: 100%;
-          width: 100%;
-          background-color: rgba(0,0,0,0.6);
-        }
-      }
-
-      .text {
-        position: absolute;
-        bottom: 1rem;
-        left:0;
-        right:0;
-        color: $white;
-        text-align: center;
-
-        .title {
-          font-size: 1.2em;
-        }
-        .author {
-          font-size: 0.8em;
-        }
       }
     }
   }

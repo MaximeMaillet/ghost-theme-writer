@@ -2,45 +2,37 @@
 
 {{> header}}
 
-
 <div class="container-fluid">
     {{#tag}}
-        {{> background-fluid background=feature_image header="1"}}
+        {{> background-fluid background=feature_image sm=true header="1"}}
     {{/tag}}
 
-    <section class="container custom-round-block background-white-light container-on-background-image-small tag-container pb-3 pt-3 mb-5">
+    <section class="container custom-round-block background-white-light container-on-background-image-sm tag-container pb-3 pt-3 mb-5">
         <div class="d-flex flex-column">
             <div class="d-flex flex-row">
                 {{#tag}}
                     <div class="tag-image" style="background-image:url('{{feature_image}}')"></div>
                 {{/tag}}
-                    <div class="tag-titles d-flex flex-column">
-                        {{#tag}}
-                            <h1>{{name}}</h1>
-                            {{#if description}}
-                                <h2>{{description}}</h2>
-                            {{/if}}
-                        {{/tag}}
+                <div class="d-flex flex-column flex-grow-1 tag-titles">
+                    {{#tag}}
+                        <h1>{{name}}</h1>
+                        {{#if description}}
+                            <h2>{{description}}</h2>
+                        {{/if}}
+                    {{/tag}}
 
-                        <div class="mt-auto d-flex flex-row posts">
-                            {{#foreach posts }}
-                                <a href="{{url}}" class="post">
-                                    <div class="image" style="background-image: url('{{feature_image}}')"></div>
-                                    <div class="text">
-                                        <div class="title">{{title}}</div>
-                                        <div class="author">{{authors.0.name}}</div>
-                                    </div>
-                                </a>
-                            {{/foreach}}
-
-                            {{pagination}}
-                        </div>
+                    <div class="mt-auto d-flex flex-row tag-sleeves">
+                        {{#foreach posts }}
+                            {{> sleeve }}
+                        {{/foreach}}
                     </div>
+                </div>
             </div>
+            {{pagination}}
         </div>
     </section>
 
     {{#tag}}
-        {{> background-fluid background=feature_image footer="1"}}
+        {{> background-fluid background=feature_image sm=true footer="1"}}
     {{/tag}}
 </div>

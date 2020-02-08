@@ -1,4 +1,4 @@
-{{#get "posts" order="created_at desc" filter="tags:[chronicles,short-story,novels,theaters,scenarios,articles]" include="authors,tags" as |posts pages|}}
+{{#get "posts" limit=limit order="created_at desc" filter="tags:[chronicles,short-story,novels,theaters,scenarios,articles]" include="authors,tags" as |posts pages|}}
     <div class="article-list">
         {{#foreach posts}}
             <div class="{{post_class}} p-0 article">

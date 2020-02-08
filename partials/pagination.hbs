@@ -1,0 +1,5 @@
+<nav class="d-flex flex-row pagination" role="navigation">
+    <a class="btn btn-primary btn-arrow arrow-left {{#unless prev}}disabled{{/unless}} " href="{{page_url prev}}">Précédent</a>
+    <span class="page-number">Page {{page}} / {{pages}}</span>
+    <a class="btn btn-primary btn-arrow arrow-right {{#unless next}}disabled{{/unless}}" href="{{page_url next}}">Suivant</a>
+</nav>
