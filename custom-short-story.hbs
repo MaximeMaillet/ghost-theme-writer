@@ -9,12 +9,10 @@
         <div class="container custom-round-block background-white-light container-on-background-image-lg mb-5 pb-3">
             <div class="d-flex flex-row align-items-center justify-content-start post-titles">
                 <h1>{{title}}</h1>
-                {{> primary-author class="ml-auto"}}
+                {{> primary-author class="post-author ml-auto"}}
             </div>
             <div class="d-flex flex-row post-excerpt">
-                <div class="resume">
-                    {{> post-resume}}
-                </div>
+                {{> post-resume class="resume"}}
                 <div class="ml-auto actions">
                     {{#has slug=slug tag="short-story-collection"}}
                         {{#foreach tags}}
@@ -37,6 +35,7 @@
             <div class="post-footer">
                 {{> comment comment_id=comment_id}}
             </div>
+            {{> progress-bar }}
         </div>
         {{> background-fluid background=feature_image lg=true footer=true}}
     </div>

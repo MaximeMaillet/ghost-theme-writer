@@ -1,0 +1,57 @@
+.pub-social-posts {
+  $gutter: 7px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-left: -$gutter;
+  margin-right: -$gutter;
+
+  div[class*="footer-"] {
+    margin: 7px $gutter;
+    a {
+      color: $gray;
+      &:hover {
+        color: $primary;
+      }
+    }
+  }
+
+  .footer-pub {
+    flex-grow: 6;
+    flex-basis: 60%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .pub-content {
+      flex-grow: 1;
+      margin-left: $gutter;
+      margin-right: $gutter;
+      position: relative;
+      &:first-child {margin-left:0;}
+      &:last-child {margin-right:0;}
+      &:after {
+        color: $primary;
+        background-color: $white;
+        @extend %fa-icon;
+        @extend .fa;
+        content: fa-content($fa-var-ad);
+        position: absolute;
+        top: -0.5em;
+        right: 0.3em;
+        font-size: 2em;
+      }
+    }
+  }
+
+  .footer-social {
+    a {
+      font-size: 2em;
+    }
+  }
+
+  .footer-articles {
+    flex-basis: auto;
+    flex-grow: 2;
+  }
+}

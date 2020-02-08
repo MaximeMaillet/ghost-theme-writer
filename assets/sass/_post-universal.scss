@@ -27,19 +27,17 @@
       margin: 0;
     }
 
-    & {
-      @include media-breakpoint-down(sm) {
-        flex-direction: column !important;
-        justify-content: start !important;
-        align-items: start !important;
+    @include media-breakpoint-down(sm) {
+      flex-direction: column !important;
+      justify-content: start !important;
+      align-items: start !important;
 
-        h1 {
-          font-size: 2em;
-        }
+      h1 {
+        font-size: 2em;
+      }
 
-        .post-author {
-          margin: 0!important;
-        }
+      .post-author {
+        margin: 0!important;
       }
     }
   }
@@ -49,41 +47,37 @@
 
     .resume {
       width: 60%;
+      .feature-image {
+        height: 300px;
+        width: 200px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+      }
+
+      .text {
+        flex: 2;
+        margin-left: 1em;
+        color: $gray;
+        font-size: 1em;
+      }
+
+      @include media-breakpoint-down(md) {
+        width: 100%;
+      }
     }
 
     .actions {
       flex: 1;
       padding: 0 1em;
-    }
-  }
 
-  .post-resume {
-    .feature-image {
-      height: 300px;
-      width: 200px;
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
-      flex: 1;
-
-      & {
-        @include media-breakpoint-down(sm) {
-          display: none !important;
-        }
+      @include media-breakpoint-down(md) {
+        display: none !important;
       }
     }
 
-    .text {
-      flex: 2;
-      margin-left: 1em;
-      color: $gray;
-      font-size: 1em;
-
-      & {
-        @include media-breakpoint-down(md) {
-          display: none !important;
-        }
-      }
+    @include media-breakpoint-down(xs) {
+      display: none !important;
     }
   }
 
@@ -93,18 +87,38 @@
     margin: 3rem auto;
     background-color: $gray-light;
     border: none;
+
+    @include media-breakpoint-down(sm) {
+      margin: 1rem auto;
+    }
   }
 
   .post-next {
+    flex-wrap: wrap;
+    overflow: hidden;
+    justify-content: center;
+
     .next-resume {
-      flex: 3;
+      flex-grow: 1;
       padding-right: 1em;
+
+      .text {
+        flex-grow: 1;
+      }
     }
 
     .next-link {
+      flex-basis: 30%;
       border-left: 1px solid $black-light;
+      padding-top: 1em;
       padding-left: 1em;
-      flex: 2;
+
+      @include media-breakpoint-down(sm) {
+        margin-top: 1em;
+        border-top: 1px solid $black-light;
+        border-left: 0;
+        flex-basis: 80%;
+      }
     }
   }
 
@@ -113,6 +127,10 @@
     text-align: justify;
     margin: 2em 0;
     padding: 0 0 1em 0;
+
+    h2,h3 {
+      color: inherit;
+    }
 
     ul {
       list-style-type: '—';
@@ -132,15 +150,18 @@
 
     .kg-card {
       width: 100%;
-      padding: 1em 2em;
+      padding: 1em 15%;
       text-align: center;
 
       &.kg-image-card {
-        height: 400px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        overflow: hidden;
 
         img {
           width: auto;
-          height: 100%;
+          max-height: 400px;
         }
       }
 
@@ -204,6 +225,10 @@
               &:hover {
                 color: $primary;
               }
+
+              @include media-breakpoint-down(sm) {
+                display: none;
+              }
             }
 
             .kg-bookmark-metadata {
@@ -232,12 +257,22 @@
                   text-decoration: underline;
                 }
               }
-            }
 
+              @include media-breakpoint-down(sm) {
+                overflow: hidden;
+                .kg-bookmark-icon {
+                  display: none;
+                }
+              }
+            }
           }
 
           .kg-bookmark-thumbnail {
             text-align: right;
+
+            @include media-breakpoint-down(sm) {
+              display: none;
+            }
 
             img {
               height: 60px;
@@ -249,63 +284,29 @@
 
       &.kg-gallery-card {
         .kg-gallery-container {
-          width: 70%;
+          width: 90%;
           margin: auto;
           display: flex;
           flex-direction: column;
 
           .kg-gallery-row {
             display: flex;
-            justify-content: space-around;
             flex-direction: row;
+            flex-wrap: wrap;
+            overflow: hidden;
             margin-bottom: 1em;
 
             .kg-gallery-image {
-              height: 200px;
-              width: auto;
 
               img {
-                height: 100%;
+                max-height: 400px;
                 width: auto;
+                //min-height: 0;
+                //min-width: 0;
+                //max-width: 15rem;
+                //width: auto;
               }
             }
-          }
-        }
-      }
-    }
-  }
-}
-
-.posts-list {
-  .article {
-    & {
-      @include media-breakpoint-down(sm) {
-        flex-direction: column;
-        position: relative;
-
-        .article-image {
-          position: absolute;
-          left: 0;
-          right: 0;
-          top: 0;
-          bottom: 0;
-          z-index:5;
-        }
-
-        .article-body {
-          z-index: 6;
-          position: absolute;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          font-size: 0.8em;
-
-          .article-header {
-            display: none !important;
-          }
-
-          .article-tags {
-            display: none !important;
           }
         }
       }
@@ -466,6 +467,10 @@
       flex-shrink: 5;
       flex-grow: 0;
 
+      @include media-breakpoint-down(md) {
+        min-height: 20rem;
+      }
+
       &:before {
         @include icon-chronicles();
         @include label-chronicles();
@@ -536,6 +541,10 @@
 
           .tag-item {
             @include label-chronicles();
+          }
+
+          @include media-breakpoint-down(xs) {
+            display: none !important;
           }
         }
 
@@ -670,6 +679,11 @@
           border-color: $articles-color;
         }
       }
+    }
+
+
+    @include media-breakpoint-down(md) {
+      flex-basis: 100% !important;
     }
   }
 }

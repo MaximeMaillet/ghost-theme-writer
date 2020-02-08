@@ -1,0 +1,27 @@
+<div class="pub-social-posts">
+    {{#get "pages" filter="primary_tag:pub"}}
+        {{#if pages}}
+        <div class="footer-pub">
+            {{#foreach pages}}
+                <div class="custom-round-block pub-content">
+                    {{content}}
+                </div>
+            {{/foreach}}
+        </div>
+        {{/if}}
+    {{/get}}
+    <div class="custom-round-block footer-social">
+        <h5>Réseaux sociaux :</h5>
+        {{> social-links}}
+    </div>
+    {{#get "posts" limit="20" order="created_at desc" filter="tags:-[config,chronicles,short-story,novels,theaters,scenarios,articles]" include="authors,tags"}}
+        {{#if posts}}
+        <div class="custom-round-block footer-articles">
+            <h5>Autres :</h5>
+            {{#foreach posts}}
+                <a href="{{url}}">{{title}}</a><br />
+            {{/foreach}}
+        </div>
+        {{/if}}
+    {{/get}}
+</div>

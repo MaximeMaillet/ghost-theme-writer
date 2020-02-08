@@ -6,14 +6,13 @@
                     {{#if id}}
                         <p class="text-center">
                             La suite :<br />
-                            <a href="{{url}}" class="btn btn-primary btn-block btn-arrow arrow-right">Découvrir &laquo; {{title}} &raquo;</a>
-                        </p>
+                            <a href="{{url}}" class="btn btn-primary btn-block btn-arrow arrow-right">Découvrir &laquo; {{title}} &raquo;</a></p>
                     {{/if}}
                 {{else}}
                     <h3>Soyez alerté de la suite !</h3>
                     {{> subscribe-form}}
                 {{/foreach}}
             {{/get}}
-        {{/has}}<br />
+        {{/has}}
     {{/foreach}}
 {{/has}}

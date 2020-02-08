@@ -5,7 +5,7 @@
 <div class="container-fluid">
     {{#post}}
         <div class="post top-icon theaters">
-            <div class="background-fluid-image background-image-lg background-fluid-image-header" style="background-image: url('{{feature_image}}')"></div>
+            {{> background-fluid background=feature_image lg=true header=true}}
             <div class="container custom-round-block background-white-light container-on-background-image mb-5 pb-3">
                 <div class="d-flex flex-row align-items-center justify-content-start post-titles">
                     <h1>{{title}}</h1>
@@ -27,7 +27,7 @@
                 </div>
                 {{> progress-bar }}
             </div>
-            <div class="background-fluid-image background-fluid-image-footer" style="background-image: url('{{feature_image}}')"></div>
+            {{> background-fluid background=feature_image lg=true footer=true}}
         </div>
     {{/post}}
 </div>

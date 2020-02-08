@@ -80,6 +80,11 @@
       align-items: center;
       justify-content: center;
       align-self: center;
+
+      @include media-breakpoint-down(xs) {
+        top: -1em;
+        left: -20px;
+      }
     }
   }
 

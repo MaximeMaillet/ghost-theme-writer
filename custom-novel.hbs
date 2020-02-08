@@ -5,18 +5,15 @@
 <div class="container-fluid">
     {{#post}}
         <div class="post top-icon novels">
-            <div class="background-fluid-image background-image-lg background-fluid-image-header" style="background-image: url('{{feature_image}}')"></div>
+            {{> background-fluid background=feature_image lg=true header=true}}
             <div class="container custom-round-block background-white-light container-on-background-image mb-5 pb-3">
                 <div class="d-flex flex-row align-items-center justify-content-start post-titles">
                     <h1>{{title}}</h1>
-                    {{> primary-author class="ml-auto"}}
+                    {{> primary-author class="post-author ml-auto"}}
                 </div>
                 <div class="d-flex flex-row post-excerpt">
                     <div class="resume">
                         {{> post-resume}}
-                    </div>
-                    <div class="ml-auto actions">
-
                     </div>
                 </div>
                 <hr class="post-split" />
@@ -26,8 +23,9 @@
                 <div class="post-footer">
                     {{> comment comment_id=comment_id}}
                 </div>
+                {{> progress-bar }}
             </div>
-            <div class="background-fluid-image background-fluid-image-footer" style="background-image: url('{{feature_image}}')"></div>
+            {{> background-fluid background=feature_image lg=true footer=true}}
         </div>
     {{/post}}
 </div>
